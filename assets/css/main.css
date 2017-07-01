@@ -1,0 +1,303 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/***************************/
+
+.maquina {
+  margin: auto;
+  width: 30vw;
+  text-align: right;
+  position: absolute;
+  padding-right: 30vw;
+  bottom: 12vh;
+  right: 0;
+  display: inline-block;
+}
+
+.maquina h1 {
+	position: relative;
+	float: left;
+	background: #fff;
+	color: #000;
+	font-size: 2.5em;
+}
+
+.maquina h1 span {
+    position:absolute;
+    right:0;
+    width:0;
+    background: #fff;
+    height: 100%;
+    animation: escribir 5s steps(30) ;
+}
+
+@keyframes escribir {
+    from { width: 100%
+
+     }
+    to { width:0 }
+}
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+}
+/***************************/
+body {
+  background: #fff;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+.contenedor {
+      height: 100vh;
+}
+.name{
+  width: 100vw;
+  height: 16vh;
+  top: 19vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  background: #fff;
+}
+
+.el {
+  position: absolute;
+  left: 0;
+  padding-left: 9px;
+  top: 0;
+  width: 10vw;
+  margin: 5vh;
+  height: 90vh;
+
+   -webkit-transition: width 0.7s, opacity 0.6s 0.7s, z-index 0s 1.3s, -webkit-transform 0.6s 0.7s;
+  transition: width 0.7s, opacity 0.6s 0.7s, z-index 0s 1.3s, -webkit-transform 0.6s 0.7s;
+  transition: transform 0.6s 0.7s, width 0.7s, opacity 0.6s 0.7s, z-index 0s 1.3s;
+  transition: transform 0.6s 0.7s, width 0.7s, opacity 0.6s 0.7s, z-index 0s 1.3s, -webkit-transform 0.6s 0.7s;
+  will-change: transform, width, opacity;
+}
+.el__overflow {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+.el__inner {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+} /* orientacion caida*/
+.cont.s--inactive .el__inner {
+  -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
+}
+.el__bg {
+  position: relative;
+  width: calc(100vw - 140px);
+  height: 100%;
+  -webkit-transition: -webkit-transform 0.6s 0.7s;
+  transition: -webkit-transform 0.6s 0.7s;
+  transition: transform 0.6s 0.7s;
+  transition: transform 0.6s 0.7s, -webkit-transform 0.6s 0.7s;
+  will-change: transform;
+}
+.el__bg:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -5%;
+  width: 100%;
+  height: 110%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+  -webkit-transform: translate3d(0, 0, 0) scale(1);
+          transform: translate3d(0, 0, 0) scale(1);
+}
+.el:nth-child(1) {
+  -webkit-transform: translate3d(0%, 0, 0);
+          transform: translate3d(0%, 0, 0);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+.cont.s--el-active .el:nth-child(1):not(.s--active) {
+  -webkit-transform: scale(0.5) translate3d(0%, 0, 0);
+          transform: scale(0.5) translate3d(0%, 0, 0);
+  opacity: 0;
+  -webkit-transition: opacity 0.95s, -webkit-transform 0.95s;
+  transition: opacity 0.95s, -webkit-transform 0.95s;
+  transition: transform 0.95s, opacity 0.95s;
+  transition: transform 0.95s, opacity 0.95s, -webkit-transform 0.95s;
+}
+.el:nth-child(1) .el__inner {
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+.el:nth-child(1) .el__bg {
+  -webkit-transform: translate3d(0%, 0, 0);
+          transform: translate3d(0%, 0, 0);
+}
+.el:nth-child(1) .el__bg:before {
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+  background-image: url("https://static.pexels.com/photos/164732/pexels-photo-164732.jpeg");
+}
+
+
+
+
+
+
+
+
+.el:nth-child(2) {
+  -webkit-transform: translate3d(105.20833%, 0, 0);
+          transform: translate3d(105.20833%, 0, 0);
+  -webkit-transform-origin: 155.20833% 50%;
+          transform-origin: 155.20833% 50%;
+}
+.cont.s--el-active .el:nth-child(2):not(.s--active) {
+  -webkit-transform: scale(0.5) translate3d(105.20833%, 0, 0);
+          transform: scale(0.5) translate3d(105.20833%, 0, 0);
+  opacity: 0;
+  -webkit-transition: opacity 0.95s, -webkit-transform 0.95s;
+  transition: opacity 0.95s, -webkit-transform 0.95s;
+  transition: transform 0.95s, opacity 0.95s;
+  transition: transform 0.95s, opacity 0.95s, -webkit-transform 0.95s;
+}
+.el:nth-child(2) .el__inner {
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+}
+.el:nth-child(2) .el__bg {
+  -webkit-transform: translate3d(-19.2%, 0, 0);
+          transform: translate3d(-19.2%, 0, 0);
+}
+.el:nth-child(2) .el__bg:before {
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+  background-image: url("https://static.pexels.com/photos/164732/pexels-photo-164732.jpeg");
+}
+.el:nth-child(3) {
+  -webkit-transform: translate3d(210.41667%, 0, 0);
+          transform: translate3d(210.41667%, 0, 0);
+  -webkit-transform-origin: 260.41667% 50%;
+          transform-origin: 260.41667% 50%;
+}
+.cont.s--el-active .el:nth-child(3):not(.s--active) {
+  -webkit-transform: scale(0.5) translate3d(210.41667%, 0, 0);
+          transform: scale(0.5) translate3d(210.41667%, 0, 0);
+  opacity: 0;
+  -webkit-transition: opacity 0.95s, -webkit-transform 0.95s;
+  transition: opacity 0.95s, -webkit-transform 0.95s;
+  transition: transform 0.95s, opacity 0.95s;
+  transition: transform 0.95s, opacity 0.95s, -webkit-transform 0.95s;
+}
+.el:nth-child(3) .el__inner {
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+.el:nth-child(3) .el__bg {
+  -webkit-transform: translate3d(-38.4%, 0, 0);
+          transform: translate3d(-38.4%, 0, 0);
+}
+.el:nth-child(3) .el__bg:before {
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+  background-image: url("https://static.pexels.com/photos/164732/pexels-photo-164732.jpeg");
+}
+.el:nth-child(4) {
+  -webkit-transform: translate3d(315.625%, 0, 0);
+          transform: translate3d(315.625%, 0, 0);
+  -webkit-transform-origin: 365.625% 50%;
+          transform-origin: 365.625% 50%;
+}
+.cont.s--el-active .el:nth-child(4):not(.s--active) {
+  -webkit-transform: scale(0.5) translate3d(315.625%, 0, 0);
+          transform: scale(0.5) translate3d(315.625%, 0, 0);
+  opacity: 0;
+  -webkit-transition: opacity 0.95s, -webkit-transform 0.95s;
+  transition: opacity 0.95s, -webkit-transform 0.95s;
+  transition: transform 0.95s, opacity 0.95s;
+  transition: transform 0.95s, opacity 0.95s, -webkit-transform 0.95s;
+}
+.el:nth-child(4) .el__inner {
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+.el:nth-child(4) .el__bg {
+  -webkit-transform: translate3d(-57.6%, 0, 0);
+          transform: translate3d(-57.6%, 0, 0);
+}
+.el:nth-child(4) .el__bg:before {
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+  background-image: url("https://static.pexels.com/photos/164732/pexels-photo-164732.jpeg");
+}
+.el:nth-child(5) {
+  -webkit-transform: translate3d(420.83333%, 0, 0);
+          transform: translate3d(420.83333%, 0, 0);
+  -webkit-transform-origin: 470.83333% 50%;
+          transform-origin: 470.83333% 50%;
+}
+.cont.s--el-active .el:nth-child(5):not(.s--active) {
+  -webkit-transform: scale(0.5) translate3d(420.83333%, 0, 0);
+          transform: scale(0.5) translate3d(420.83333%, 0, 0);
+  opacity: 0;
+  -webkit-transition: opacity 0.95s, -webkit-transform 0.95s;
+  transition: opacity 0.95s, -webkit-transform 0.95s;
+  transition: transform 0.95s, opacity 0.95s;
+  transition: transform 0.95s, opacity 0.95s, -webkit-transform 0.95s;
+}
+.el:nth-child(5) .el__inner {
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+.el:nth-child(5) .el__bg {
+  -webkit-transform: translate3d(-76.8%, 0, 0);
+          transform: translate3d(-76.8%, 0, 0);
+}
+.el:nth-child(5) .el__bg:before {
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+  background-image: url("https://static.pexels.com/photos/164732/pexels-photo-164732.jpeg");
+}

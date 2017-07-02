@@ -11,18 +11,26 @@ body {
   height: 500px;
   width: 500px;
 }
+.fixed-bar {
+  position: fixed;
+  top: 0;
+  left: 20px;
+  background: #fff;
+  z-index: 10
+}
+
 .body-wrapper {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding-bottom: 20px;
-  max-width: 1280px;
+  max-width: 60vw;
   margin: 0 auto
 }
 .first, .wrapper {
-  height: 100vh;
+  height: 45vh;
   /*Change as needed.  This prevents the smaller images from getting scrunched up*/
-  min-height: 600px;
+/*  min-height: 600px;*/
   flex-basis: 50%;
   cursor: pointer;
 
@@ -47,7 +55,7 @@ body {
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: center;
-  /*padding-left: 20px*/
+  padding-left: 20px;
 }
 .background-wrapper {
   flex-basis: 33.333%;

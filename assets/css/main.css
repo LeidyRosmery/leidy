@@ -1,358 +1,98 @@
-*, *:before, *:after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-/***************************/
 
-.maquina {
-  /* margin: auto; */
-  /* width: 40vw; */
-  /* text-align: left; */
-  position: absolute;
-  padding-right: 12vw;
-  bottom: 4vh;
-  right: 0;
-  /* display: inline-block; */
-}
-
-.maquina h1 {
-	position: relative;
-	float: left;
-	background: #fff;
-	color: #000;
-	font-size: 2.5em;
-}
-
-.maquina h1 span {
-    position:absolute;
-    right:0;
-    width:0;
-    background: #fff;
-    height: 100%;
-    animation: escribir 5s steps(30) ;
-}
-
-@keyframes escribir {
-    from { width: 100%
-
-     }
-    to { width:0 }
-}
-.animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-@-webkit-keyframes zoomIn {
-  from {
-    opacity: 0;
-    -webkit-transform: scale3d(.3, .3, .3);
-    transform: scale3d(.3, .3, .3);
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes zoomIn {
-  from {
-    opacity: 0;
-    -webkit-transform: scale3d(.3, .3, .3);
-    transform: scale3d(.3, .3, .3);
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
-
-.zoomIn {
-  -webkit-animation-name: zoomIn;
-  animation-name: zoomIn;
-}
-/***************************/
+/*autoprefixer and reset used*/
+/*Look best on a tall monitor with full page*/
 body {
-  background: #fff;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  padding: 20px 20px 0 20px;
+  /*this height is just to demonstrate what it looks to scroll past the bottom images*/
+  height: 4000px;
+  font: 100% 'Yanone Kaffeesatz', sans-serif;
 }
-.contenedor {
-      height: 100vh;
+.prueba{
+  height: 500px;
+  width: 500px;
 }
-.name{
-  width: 100vw;
-  height: 11vh;
-  top: 14vh;
-  position: fixed;
+.body-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  z-index: 20;
-  background: #fff;
+  padding-bottom: 20px;
+  max-width: 1280px;
+  margin: 0 auto
 }
+.first, .wrapper {
+  height: 100vh;
+  /*Change as needed.  This prevents the smaller images from getting scrunched up*/
+  min-height: 600px;
+  flex-basis: 50%;
+  cursor: pointer;
 
-.el {
-  position: absolute;
-      left: 0;
-      top: 0;
-      /* padding: 4px; */
-      /* margin-left: 20px; */
-      width: 7vw;
-      height: 100vh;
-
-   -webkit-transition: width 0.7s, opacity 0.6s 0.7s, z-index 0s 1.3s, -webkit-transform 0.6s 0.7s;
-  transition: width 0.7s, opacity 0.6s 0.7s, z-index 0s 1.3s, -webkit-transform 0.6s 0.7s;
-  transition: transform 0.6s 0.7s, width 0.7s, opacity 0.6s 0.7s, z-index 0s 1.3s;
-  transition: transform 0.6s 0.7s, width 0.7s, opacity 0.6s 0.7s, z-index 0s 1.3s, -webkit-transform 0.6s 0.7s;
-  will-change: transform, width, opacity;
+  transition: flex-basis 0.4s ease-in-out 0.2s;
+  text-align: center;
+  overflow: hidden
 }
-.el__overflow {
-  overflow: hidden;
-  position: relative;
-  height: 100%;
+.caption-header {
+  font-weight: 100;
+  background: rgba(25,25,25,0.8);
+  color: #fff;
+  padding: 10px 0;
+  font-size: 1.5em;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out 0.4s
 }
-.el__inner {
-  overflow: hidden;
-  position: relative;
-  height: 100%;
-  -webkit-transition: -webkit-transform 1s;
-  transition: -webkit-transform 1s;
-  transition: transform 1s;
-  transition: transform 1s, -webkit-transform 1s;
-} /* orientacion caida*/
-.cont.s--inactive .el__inner {
-  -webkit-transform: translate3d(0, 100%, 0);
-          transform: translate3d(0, 100%, 0);
+.first:hover, .wrapper:hover {
+  flex-basis: 100%
 }
-.el__bg {
-  position: relative;
-  width: calc(100vw - 140px);
-  height: 100%;
-  -webkit-transition: -webkit-transform 0.6s 0.7s;
-  transition: -webkit-transform 0.6s 0.7s;
-  transition: transform 0.6s 0.7s;
-  transition: transform 0.6s 0.7s, -webkit-transform 0.6s 0.7s;
-  will-change: transform;
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  /*padding-left: 20px*/
 }
-.el__bg:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: -5%;
+.background-wrapper {
+  flex-basis: 33.333%;
+  margin-bottom: 20px;
   width: 100%;
-  height: 110%;
-  background-size: cover;
-  background-position: center center;
-  -webkit-transition: -webkit-transform 1s;
-  transition: -webkit-transform 1s;
-  transition: transform 1s;
-  transition: transform 1s, -webkit-transform 1s;
-  -webkit-transform: translate3d(0, 0, 0) scale(1);
-          transform: translate3d(0, 0, 0) scale(1);
+  transition: flex-basis 0.4s ease-in-out 0.2s;
+  cursor: pointer;
+  overflow: hidden
 }
-.el:nth-child(1) {
-  -webkit-transform: translate3d(0%, 0, 0);
-          transform: translate3d(0%, 0, 0);
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
+.background-attach {
+  background-attachment: scroll !important;
+  background-position: center center !important;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
-.cont.s--el-active .el:nth-child(1):not(.s--active) {
-  -webkit-transform: scale(0.5) translate3d(0%, 0, 0);
-          transform: scale(0.5) translate3d(0%, 0, 0);
-  opacity: 0;
-  -webkit-transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: transform 0.95s, opacity 0.95s;
-  transition: transform 0.95s, opacity 0.95s, -webkit-transform 0.95s;
+.wrapper > div:last-child {
+  margin-bottom: 0
 }
-.el:nth-child(1) .el__inner {
-  -webkit-transition-delay: 0s;
-          transition-delay: 0s;
+.background-wrapper:hover {
+  flex-basis: 100%
 }
-.el:nth-child(1) .el__bg {
-  -webkit-transform: translate3d(0%, 0, 0);
-          transform: translate3d(0%, 0, 0);
+.first:hover > .caption-header, .background-wrapper:hover > .caption-header {
+  transform: translateY(0)
 }
-.el:nth-child(1) .el__bg:before {
-  -webkit-transition-delay: 0s;
-          transition-delay: 0s;
-  background-image: url("https://static.pexels.com/photos/164732/pexels-photo-164732.jpeg");
-  background-position: -57px 23px;
+#large-image-one {
+  background: url("https://farm1.staticflickr.com/727/21673476679_3f001b18fe_h.jpg") fixed 0% 50% no-repeat
 }
-.el:nth-child(2) {
-  -webkit-transform: translate3d(107.44681%, 0, 0);
-          transform: translate3d(107.44681%, 0, 0);
-  -webkit-transform-origin: 157.44681% 50%;
-          transform-origin: 157.44681% 50%;
+#first {
+  background: url("https://farm1.staticflickr.com/577/21675925938_e6f2cd0b97_h.jpg") fixed 20% 120% no-repeat
 }
-.cont.s--el-active .el:nth-child(2):not(.s--active) {
-  -webkit-transform: scale(0.5) translate3d(107.44681%, 0, 0);
-          transform: scale(0.5) translate3d(107.44681%, 0, 0);
-  opacity: 0;
-  -webkit-transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: transform 0.95s, opacity 0.95s;
-  transition: transform 0.95s, opacity 0.95s, -webkit-transform 0.95s;
+#second {
+  background: url("https://farm6.staticflickr.com/5670/21852371935_04848f1034_h.jpg") fixed center top no-repeat
 }
-.el:nth-child(2) .el__inner {
-  -webkit-transition-delay: 0.1s;
-          transition-delay: 0.1s;
+#third {
+  background: url("https://farm6.staticflickr.com/5716/21861757341_08bd25c0cf_h.jpg") fixed 100% 50% no-repeat
 }
-.el:nth-child(2) .el__bg {
-  -webkit-transform: translate3d(-13.42857%, 0, 0);
-          transform: translate3d(-13.42857%, 0, 0);
+#large-image-two {
+  background: url("https://farm6.staticflickr.com/5826/21853275615_c96fd8849c_h.jpg") fixed 180% 20% no-repeat
 }
-.el:nth-child(2) .el__bg:before {
-  -webkit-transition-delay: 0.1s;
-          transition-delay: 0.1s;
-  background-image: url("https://static.pexels.com/photos/164732/pexels-photo-164732.jpeg");
-      background-position: -11px 0px;
+#fourth {
+  background: url("https://farm6.staticflickr.com/5793/21874899471_311e162554_h.jpg") fixed 180% 50% no-repeat
 }
-.el:nth-child(3) {
-  -webkit-transform: translate3d(214.89362%, 0, 0);
-          transform: translate3d(214.89362%, 0, 0);
-  -webkit-transform-origin: 264.89362% 50%;
-          transform-origin: 264.89362% 50%;
+#fifth {
+  background: url("https://farm6.staticflickr.com/5627/21835359466_d0ae74e58f_h.jpg") fixed 180% 50% no-repeat
 }
-.cont.s--el-active .el:nth-child(3):not(.s--active) {
-  -webkit-transform: scale(0.5) translate3d(214.89362%, 0, 0);
-          transform: scale(0.5) translate3d(214.89362%, 0, 0);
-  opacity: 0;
-  -webkit-transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: transform 0.95s, opacity 0.95s;
-  transition: transform 0.95s, opacity 0.95s, -webkit-transform 0.95s;
-}
-.el:nth-child(3) .el__inner {
-  -webkit-transition-delay: 0.2s;
-          transition-delay: 0.2s;
-}
-.el:nth-child(3) .el__bg {
-  -webkit-transform: translate3d(-26.85714%, 0, 0);
-          transform: translate3d(-26.85714%, 0, 0);
-}
-.el:nth-child(3) .el__bg:before {
-  -webkit-transition-delay: 0.2s;
-          transition-delay: 0.2s;
-  background-image: url("https://static.pexels.com/photos/164732/pexels-photo-164732.jpeg");
-    background-position: 43px -23px;
-}
-.el:nth-child(4) {
-  -webkit-transform: translate3d(322.34043%, 0, 0);
-          transform: translate3d(322.34043%, 0, 0);
-  -webkit-transform-origin: 372.34043% 50%;
-          transform-origin: 372.34043% 50%;
-}
-.cont.s--el-active .el:nth-child(4):not(.s--active) {
-  -webkit-transform: scale(0.5) translate3d(322.34043%, 0, 0);
-          transform: scale(0.5) translate3d(322.34043%, 0, 0);
-  opacity: 0;
-  -webkit-transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: transform 0.95s, opacity 0.95s;
-  transition: transform 0.95s, opacity 0.95s, -webkit-transform 0.95s;
-}
-.el:nth-child(4) .el__inner {
-  -webkit-transition-delay: 0.3s;
-          transition-delay: 0.3s;
-}
-.el:nth-child(4) .el__bg {
-  -webkit-transform: translate3d(-40.28571%, 0, 0);
-          transform: translate3d(-40.28571%, 0, 0);
-}
-.el:nth-child(4) .el__bg:before {
-  -webkit-transition-delay: 0.3s;
-          transition-delay: 0.3s;
-  background-image: url("https://static.pexels.com/photos/164732/pexels-photo-164732.jpeg");
-      background-position: 113px -28px;
-}
-.el:nth-child(5) {
-  -webkit-transform: translate3d(429.78723%, 0, 0);
-          transform: translate3d(429.78723%, 0, 0);
-  -webkit-transform-origin: 479.78723% 50%;
-          transform-origin: 479.78723% 50%;
-}
-.cont.s--el-active .el:nth-child(5):not(.s--active) {
-  -webkit-transform: scale(0.5) translate3d(429.78723%, 0, 0);
-          transform: scale(0.5) translate3d(429.78723%, 0, 0);
-  opacity: 0;
-  -webkit-transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: transform 0.95s, opacity 0.95s;
-  transition: transform 0.95s, opacity 0.95s, -webkit-transform 0.95s;
-}
-.el:nth-child(5) .el__inner {
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
-}
-.el:nth-child(5) .el__bg {
-  -webkit-transform: translate3d(-53.71429%, 0, 0);
-          transform: translate3d(-53.71429%, 0, 0);
-}
-.el:nth-child(5) .el__bg:before {
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
-  background-image: url("https://static.pexels.com/photos/164732/pexels-photo-164732.jpeg");
-        background-position: 127px -53px;
-}
-.el:nth-child(6) {
-  -webkit-transform: translate3d(537.23404%, 0, 0);
-          transform: translate3d(537.23404%, 0, 0);
-  -webkit-transform-origin: 587.23404% 50%;
-          transform-origin: 587.23404% 50%;
-}
-.cont.s--el-active .el:nth-child(6):not(.s--active) {
-  -webkit-transform: scale(0.5) translate3d(537.23404%, 0, 0);
-          transform: scale(0.5) translate3d(537.23404%, 0, 0);
-  opacity: 0;
-  -webkit-transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: transform 0.95s, opacity 0.95s;
-  transition: transform 0.95s, opacity 0.95s, -webkit-transform 0.95s;
-}
-.el:nth-child(6) .el__inner {
-  -webkit-transition-delay: 0.5s;
-          transition-delay: 0.5s;
-}
-.el:nth-child(6) .el__bg {
-  -webkit-transform: translate3d(-67.14286%, 0, 0);
-          transform: translate3d(-67.14286%, 0, 0);
-}
-.el:nth-child(6) .el__bg:before {
-  -webkit-transition-delay: 0.5s;
-          transition-delay: 0.5s;
-  background-image: url("https://static.pexels.com/photos/164732/pexels-photo-164732.jpeg");
-      background-position: 180px -58px;
-}
-.el:nth-child(7) {
-  -webkit-transform: translate3d(644.68085%, 0, 0);
-          transform: translate3d(644.68085%, 0, 0);
-  -webkit-transform-origin: 694.68085% 50%;
-          transform-origin: 694.68085% 50%;
-}
-.cont.s--el-active .el:nth-child(7):not(.s--active) {
-  -webkit-transform: scale(0.5) translate3d(644.68085%, 0, 0);
-          transform: scale(0.5) translate3d(644.68085%, 0, 0);
-  opacity: 0;
-  -webkit-transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: opacity 0.95s, -webkit-transform 0.95s;
-  transition: transform 0.95s, opacity 0.95s;
-  transition: transform 0.95s, opacity 0.95s, -webkit-transform 0.95s;
-}
-.el:nth-child(7) .el__inner {
-  -webkit-transition-delay: 0.6s;
-          transition-delay: 0.6s;
-}
-.el:nth-child(7) .el__bg {
-  -webkit-transform: translate3d(-80.57143%, 0, 0);
-          transform: translate3d(-80.57143%, 0, 0);
-}
-.el:nth-child(7) .el__bg:before {
-  -webkit-transition-delay: 0.6s;
-          transition-delay: 0.6s;
-  background-image: url("https://static.pexels.com/photos/164732/pexels-photo-164732.jpeg");
-    background-position: 223px -66px;
+#sixth {
+ background: url("https://farm6.staticflickr.com/5652/21836113496_c56c3baaf8_h.jpg") fixed 180% 10% no-repeat
 }

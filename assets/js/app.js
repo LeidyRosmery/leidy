@@ -15,11 +15,11 @@ $( window ).scroll(function() {
     $('#portfolio').addClass('top-line');
     //$('#portfolio').removeClass('top-line-hidden-black ');
   }
-  if (currentScroll < 440){
+  if (currentScroll >790){
     $('#about').addClass('top-line');
     //$('#portfolio').removeClass('top-line-hidden-black ');
   }
-  if (currentScroll < 540){
+  if (currentScroll > 840){
     $('#contact').addClass('top-line');
     //$('#portfolio').removeClass('top-line-hidden-black ');
   }

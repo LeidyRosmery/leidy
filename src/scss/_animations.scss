@@ -1,25 +1,71 @@
 
-.maquina {
+.maquina h1 {
+	position: relative;
+	float: left;
+	background: #fff;
+	color: #000;
+	font-size: 2.5em;
+}
+
+.maquina h1 span {
+    position:absolute;
+    right:0;
+    width:0;
+    background: #fff;
+    height: 100%;
+    animation: escribir 5s steps(30) ;
+}
+
+@keyframes escribir {
+    from { width: 100%
+
+     }
+    to { width:0 }
+}
+.animated {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+}
+/***************************/
+
+.name{
+  display: flex;
+  width: 100vw;
+	font-size: 0.5em;
+  justify-content: center;
   position: absolute;
-  padding-right: 12vw;
-  bottom: 4vh;
-  right: 0;
-
-}
-h3{
-  padding: 1em;
-  transition: 3s ease-in;
-  margin: 3em;
-}
-.top-line-hidden-black {
-  color: #000;
-  background: linear-gradient(to left, black, black) no-repeat 0 0;
-  background-size: 0% 2px;
-}
-
-.top-line {
-  color: #e23e3b;
-  background: linear-gradient(to left, #e23e3b, #e23e3b) no-repeat 0 0;
-  background-size: 100% 2px;
-  cursor: default;
+  align-items: center;
+  z-index: 20;
+  background: #fff;
 }

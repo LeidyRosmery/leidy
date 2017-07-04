@@ -1,24 +1,53 @@
-div {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 .transition {
+  height: 0;
+  background-image: url(https://static.pexels.com/photos/164732/pexels-photo-164732.jpeg);
+  background-size: cover;
+  transition: height 2s;
+  display: inline-block;
+
+}
+
+.barra{
+  display: inline-block;
+}
+
+
+
+@media (max-width: 767px) and (min-width:0) {
+  .transition {
+    width: 11vw;
+    margin-right: -2px;
+  }
+  .barra {
+      height: 100vh;
+  }
+  .hola {
+      height: 100vh;
+  }
+  .name {
+    top: -79vh;
+  }
+
+/* left: -916px; */
+
+ }
+@media (min-width: 768px) and (max-width: 991px) {
+ }
+@media (min-width: 992px) and (max-width: 1199px) {
+ }
+@media (min-width: 1200px) {
+  .transition {
     width: 7vw;
-    height: 0;
-    background-image: url("https://static.pexels.com/photos/164732/pexels-photo-164732.jpeg");
-    //background-position: 10px 20px;
-    background-size: cover;
-    transition: height 2s;
-    display: inline-block;
-}
-
-.barra {
-    height: 100vh;
-    display: inline-block;
-}
-
-.hola {
-    height: 100vh;
+    margin-right: 3px;
+  }
+  .barra {
+      height: 100vh;
+  }
+  .hola {
+      height: 100vh;
+  }
+  .name {
+    top: 8vh;
+  	left: -916px;}
 }

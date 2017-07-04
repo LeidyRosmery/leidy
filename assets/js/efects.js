@@ -1,13 +1,18 @@
 window.addEventListener('load', function(){
-  var divTransition = document.getElementsByClassName('transition');
-    console.log(divTransition);
-  var time=0;
-  var j=1000
   setTimeout(function(){
-    for (var i = 0; i < divTransition.length; i++) {
-        divTransition[i].classList.add("hola")
-        }
-      j=j+200;
-  }, j);
+     document.getElementsByClassName('transition')[0].classList.add("hola");}, 1000);
+
+  setTimeout(function(){document.getElementsByClassName('transition')[1].classList.add("hola");}, 1200);
+  setTimeout(function(){
+     document.getElementsByClassName('transition')[2].classList.add("hola");}, 1400);
+  setTimeout(function(){
+     document.getElementsByClassName('transition')[3].classList.add("hola");}, 1600);
+  setTimeout(function(){
+     document.getElementsByClassName('transition')[4].classList.add("hola");}, 1800);
+  setTimeout(function(){
+     document.getElementsByClassName('transition')[5].classList.add("hola");}, 2000);
+     setTimeout(function(){
+        document.getElementsByClassName('transition')[6].classList.add("hola");}, 2200);
+
 
 });

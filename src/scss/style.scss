@@ -1,5 +1,13 @@
 @import "efects" ;
 @import "animations" ;
+$color-primary:#e23e3b;
+$color-second: #333;
+$color-third: gray;
+
+body {
+  background: #fff;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
@@ -10,214 +18,31 @@
   margin-bottom: 10vh;
 }
 
-.maquina h1 {
-	position: relative;
-	float: left;
-	background: #fff;
-	color: #000;
-	font-size: 2.5em;
-}
-
-.maquina h1 span {
-    position:absolute;
-    right:0;
-    width:0;
-    background: #fff;
-    height: 100%;
-    animation: escribir 5s steps(30) ;
-}
-
-@keyframes escribir {
-    from { width: 100%
-
-     }
-    to { width:0 }
-}
-.animated {
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-@-webkit-keyframes zoomIn {
-  from {
-    opacity: 0;
-    -webkit-transform: scale3d(.3, .3, .3);
-    transform: scale3d(.3, .3, .3);
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes zoomIn {
-  from {
-    opacity: 0;
-    -webkit-transform: scale3d(.3, .3, .3);
-    transform: scale3d(.3, .3, .3);
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
-
-.zoomIn {
-  -webkit-animation-name: zoomIn;
-  animation-name: zoomIn;
-}
-/***************************/
-body {
-  background: #fff;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-}
-.contenedor {
-      height: 100vh;
-}
-.name{
-  width: 100vw;
-      /* height: 11vh; */
-      top: 14vh;
-      position: absolute;
-      /* position: fixed; */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 20;
-      background: #fff;
-}
-
-/*******************************************************/
-
-*, *:before, *:after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
-  background: #fff;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-}
-
-$sidePad: 70px;
-$numOfEls: 7;
-$elMrg: 1%;
-
-$initAT: 1s;
-$initDelayStep: 0.1s;/*
-$fullInitAT: $initAT + $initDelayStep * ($numOfEls - 1);*/
-$moveAT: 0.6s;
-$expandAT: 0.7s;
-//$expandDelay: 0.1s;
-//$bgScaleAT: 0.8s;
-$fadeoutAT: $moveAT + $expandAT/2;
-//$indexHoverAT: 0.5s;
-//$closeBtnAT: 0.3s;
-//$closeBtnLineDelay: 0.15s;
-//$fullExpandAT: $moveAT + $expandDelay + $expandAT;
-//$contentFadeinAT: 0.5s;
-@mixin contElActive {
-
-  .cont.s--el-active & {
-
-    @content;
-  }
-}
-@mixin contInactive {
-  .cont.s--inactive & {
-    @content;
-  }
-}
-
-.el {
-  $elW: (100% - $elMrg * ($numOfEls - 1)) / $numOfEls;
-  $elMrgRel: percentage($elMrg / $elW);
-
+.detail-pg {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: $elW;
-  height: 100%;
-  background: #252525;
-  transition: transform $moveAT $expandAT, width $expandAT, opacity $moveAT $expandAT, z-index 0s $moveAT + $expandAT;
-  will-change: transform, width, opacity;
-
-  &__overflow {
-    overflow: hidden;
-    position: relative;
-    height: 100%;
-  }
-
-  &__inner {
-    overflow: hidden;
-    position: relative;
-    height: 100%;
-    transition: transform $initAT;
-
-    @include contInactive {
-      transform: translate3d(0,100%,0);
-    }
-  }
-
-  @mixin contInactive {
-  .cont.s--inactive & {
-    @content;
-  }
+      padding-right: 6vw;
+      bottom: -89vh;
+      right: 0;
+      & .--title-detalle{
+        color: $color-primary;
+      }
 }
 
-  &__bg {
-    position: relative;
-    width: calc(100vw - #{$sidePad * 2});
-    height: 100%;
-    transition: transform $moveAT $expandAT;
-    will-change: transform;
 
-    &:before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: -5%;
-      width: 100%;
-      height: 110%;
-      background-size: cover;
-      background-position: center center;
-      transition: transform $initAT;
-      transform: translate3d(0,0,0) scale(1);
-    }
+h3{
+  padding: 1em;
+  transition: 3s ease-in;
+  margin: 3em;
+}
+.top-line-hidden-black {
+  color: #000;
+  background: linear-gradient(to left, black, black) no-repeat 0 0;
+  background-size: 0% 2px;
+}
 
-  }
-
-
-
-  @for $i from 0 to $numOfEls {
-    &:nth-child(#{$i + 1}) {
-      $x: (100% + $elMrgRel) * $i;
-      transform: translate3d($x,0,0);
-      transform-origin: $x + 50% 50%;
-
-      @include contElActive {
-
-        &:not(.s--active) {
-          transform: scale(0.5) translate3d($x,0,0);
-          opacity: 0;
-          transition: transform $fadeoutAT, opacity $fadeoutAT;
-        }
-      }
-
-      .el__inner {
-        transition-delay: $initDelayStep * $i;
-      }
-
-      .el__bg {
-        transform: translate3d($elW * $i * -1,0,0);
-
-        &:before {
-          transition-delay: 0.1s * $i;
-          background-image: url('https://static.pexels.com/photos/164732/pexels-photo-164732.jpeg');
-        }
-      }
-    }
-  }
+.top-line {
+  color: #e23e3b;
+  background: linear-gradient(to left, #e23e3b, #e23e3b) no-repeat 0 0;
+  background-size: 100% 2px;
+  cursor: default;
 }

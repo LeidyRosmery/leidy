@@ -1,8 +1,4 @@
-var $cont = document.querySelector('.cont');
 
-setTimeout(function() {
-  $cont.classList.remove('s--inactive');
-}, 200);
 
 var lastScrollTop = 0;
 $( window ).scroll(function() {

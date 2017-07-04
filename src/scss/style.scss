@@ -1,37 +1,11 @@
+@import "efects" ;
+@import "animations" ;
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 /***************************/
-
-.maquina {
-  /* margin: auto; */
-  /* width: 40vw; */
-  /* text-align: left; */
-  position: absolute;
-  padding-right: 12vw;
-  bottom: 4vh;
-  right: 0;
-  /* display: inline-block; */
-}
-h3{
-  padding: 1em;
-  transition: 3s ease-in;
-  margin: 3em;
-}
-.top-line-hidden-black {
-  color: #000;
-  background: linear-gradient(to left, black, black) no-repeat 0 0;
-  background-size: 0% 2px;
-}
-
-.top-line {
-  color: #e23e3b;
-  background: linear-gradient(to left, #e23e3b, #e23e3b) no-repeat 0 0;
-  background-size: 100% 2px;
-  cursor: default;
-}
 .portfolio , .home-page , .contact-me , .about-me {
   margin-bottom: 10vh;
 }

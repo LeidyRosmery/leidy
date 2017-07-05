@@ -1,0 +1,56 @@
+
+.cross{
+  display: inline-block;
+position:absolute ;
+top: 100px;
+height :3px;
+width: 200px;
+background-color:black;}
+
+ .linea{
+
+    -moz-transform: rotate(45deg);
+     -ms-transform: rotate(45deg);
+     -o-transform: rotate(45deg);
+     transform: rotate(45deg);
+
+}
+ .linea1{
+    -moz-transform: rotate(45deg);
+     -ms-transform: rotate(45deg);
+     -o-transform: rotate(45deg);
+     transform: rotate(135deg);
+}
+.mySkill {
+    height: 192px;
+    display: inline-block;
+    width: 192px;
+    position: relative;
+    background: palevioletred;
+}
+.mySkill.down {
+    top: 35vh;
+}
+.icon-skill{
+width: 50px;
+height: 50px;
+position: absolute;
+}
+
+img.icon-skill.primero {
+    top: 73px;
+    left: 17px;
+}
+img.icon-skill.tercero {
+    left: 71px;
+    top: 4px;
+}
+img.icon-skill.cuarto {
+    left: 71px;
+    bottom: 4px;
+}
+
+img.icon-skill.segundo{
+   top: 73px;
+   right: 17px;
+}

@@ -10,8 +10,8 @@
 
 @media (max-width: 767px) and (min-width: 0) {
   .transition {
-    width: 11vw;
-    margin-right: -2px; }
+    width: 14vw;
+        margin-right: -2px; }
 
   .barra {
     height: 100vh; }
@@ -35,8 +35,8 @@
     height: 100vh; }
 
   .name {
-    top: 8vh;
-    left: -916px; } }
+    top: 15vh;
+    right: 981px; } }
 .maquina h1 {
   position: relative;
   float: left;
@@ -87,10 +87,10 @@
   width: 100vw;
   font-size: 0.5em;
   justify-content: center;
-  position: absolute;
+  position: relative;
   align-items: center;
   z-index: 20;
-  background: #fff; }
+  background: #fff;}
 
 body {
   background: #fff;

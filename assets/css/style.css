@@ -10,8 +10,8 @@
 
 @media (max-width: 767px) and (min-width: 0) {
   .transition {
-    width: 14vw;
-        margin-right: -2px; }
+    width: 11vw;
+    margin-right: -2px; }
 
   .barra {
     height: 100vh; }
@@ -35,8 +35,8 @@
     height: 100vh; }
 
   .name {
-    top: 15vh;
-    right: 981px; } }
+    top: 8vh;
+    left: -916px; } }
 .maquina h1 {
   position: relative;
   float: left;
@@ -87,10 +87,55 @@
   width: 100vw;
   font-size: 0.5em;
   justify-content: center;
-  position: relative;
+  position: absolute;
   align-items: center;
   z-index: 20;
-  background: #fff;}
+  background: #fff; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #38678f; }
+
+.container {
+  box-sizing: border-box;
+  width: 250px;
+  height: 300px;
+  margin: 2em auto;
+  background: #38678f;
+  color: #eee;
+  font-size: 2.3em;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 0 2px #1b3246; }
+  .container:before, .container:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    transition: all .5s;
+    background: red; }
+  .container:before {
+    height: 10px;
+    width: 0;
+    bottom: 0;
+    box-shadow: 250px -290px red; }
+  .container:after {
+    top: 0;
+    width: 10px;
+    box-shadow: 240px 300px red;
+    height: 0; }
+  .container:hover:after {
+    height: 100%;
+    box-shadow: 240px 0 red; }
+  .container:hover:before {
+    width: 100%;
+    box-shadow: 0 -290px red; }
 
 body {
   background: #fff;

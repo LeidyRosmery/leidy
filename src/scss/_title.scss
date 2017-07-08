@@ -1,0 +1,69 @@
+body {
+  margin :0 ;
+  padding : 0 ;
+  font-family : sans-serif ;
+  background : darken(steelblue, 10);
+}
+
+.container {
+  $border-color: red;
+  $border-width: 10px;
+
+  @function restoV() {
+    @return -(300px - $border-width);
+  }
+  @function restoH() {
+    @return (250px - $border-width);
+  }
+  box-sizing : border-box;
+  width : 250px ;
+  height : 300px;
+  margin : 2em auto ;
+  background : darken(steelblue, 10);
+  color : #eee;
+  font-size : 2.3em ;
+  padding : 1em ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 0 2px darken(steelblue, 30);
+  &:before , &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0 ;
+    transition: all .5s;
+    background: $border-color;
+  }
+  &:before{
+    height: $border-width;
+    width: 0;
+    bottom: 0;
+  //  box-shadow: 0px restoV() $border-color;
+    //extra
+    box-shadow: 250px restoV() $border-color;
+  }
+  &:after {
+    top: 0;
+    width: $border-width;
+    //box-shadow: restoH() 0 $border-color;
+    //extra
+    box-shadow: restoH() 300px $border-color;
+    height: 0;
+  }
+  &:hover{
+    &:after{
+      height: 100%;
+      //extra
+      box-shadow: restoH() 0 $border-color;
+    }
+    &:before{
+      width: 100%;
+      //extra
+      box-shadow:0 restoV() $border-color;
+    }
+  }
+
+}

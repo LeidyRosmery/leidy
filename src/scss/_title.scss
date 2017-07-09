@@ -1,83 +1,179 @@
-body {
-  margin :0 ;
-  padding : 0 ;
-  font-family : sans-serif ;
-  //background : darken(steelblue, 10);
+.portafolio {
+    padding: 8vh 0;
 }
 
-.container {
-  $border-color: red;
-  $border-width: 10px;
-  $width: 350px;
-  $height: 400px;
-  @function restoV() {
-    @return -($height - $border-width);
-  }
-  @function restoH() {
-    @return ($width - $border-width);
-  }
-  box-sizing : border-box;
-  margin : 2em auto ;
-  background : darken(steelblue, 10);
-  color : #eee;
-  width: $width;
-  height: $height;
-  font-size : 2.3em ;
-  padding : 1em ;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 0 0 2px darken(steelblue, 30);
-  &:before , &:after {
-    content: "";
-    display: block;
+.margin-section {
+    padding: 8vh 0;
+}
+
+.boxTitle {
+    $border-color: #e23e3b;
+    $border-width: 1.5vw;
+    $width: 26vw;
+    $height: 40vh;
+    @function restoV() {
+         @return -($height - 2vh);
+    }
+    @function restoH() {
+         @return ($width - $border-width);
+    }
+    box-sizing: border-box;
+    color: #e23e3b;
+    width: 26vw;
+    position: relative;
+    height: 40vh;
+    font-size: 2.3em;
+    display: inline-block;
+    box-shadow: 0 0 0 0.3vw #1b3246;
+    &:after,
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        transition: all 0.5s;
+        background: $border-color;
+    }
+
+    &:before {
+        height: $border-width;
+        width: 0;
+        bottom: 0;
+        //  box-shadow: 0px restoV() $border-color;
+        //extra
+        box-shadow: $width restoV() $border-color;
+    }
+
+    &:after {
+        top: 0;
+        width: $border-width;
+        box-shadow: restoH() $height $border-color;
+        height: 0;
+    }
+
+    &:hover {
+        &:after {
+            height: 100%;
+            //extra
+            box-shadow: restoH() 0 $border-color;
+        }
+
+        &:before {
+            width: 100%;
+            //extra
+            box-shadow: 0 restoV() $border-color;
+        }
+    }
+}
+
+.title-boxTitle {
     position: absolute;
-    left: 0 ;
-    transition: all .5s;
-    background: $border-color;
-  }
-  &:before{
-    height: $border-width;
-    width: 0;
-    bottom: 0;
-  //  box-shadow: 0px restoV() $border-color;
-    //extra
-    box-shadow: $width restoV() $border-color;
-  }
-  &:after {
-    top: 0;
-    width: $border-width;
-    //box-shadow: restoH() 0 $border-color;
-    //extra
-    box-shadow: restoH() $height $border-color;
-    height: 0;
-  }
-  &:hover{
-    &:after{
-      height: 100%;
-      //extra
-      box-shadow: restoH() 0 $border-color;
-    }
-    &:before{
-      width: 100%;
-      //extra
-      box-shadow:0 restoV() $border-color;
-    }
-  }
-
+    width: 20%;
+    top: 0.8em;
+    color: black;
+    height: 52%;
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    left: -2%;
+    z-index: 10;
 }
-.title-container {
-  position: absolute;
-  position: absolute;
-width: 100%;
-color: black;
-height: 52%;
-display: flex;
-align-content: center;
-justify-content: center;
-background: #fff;
-left: -13%;
-z-index: 10;
+
+.title h3 {
+    padding-left: 2em;
+    font-size: 1.8em;
+    font-weight: bold;
+    font-family: sans-serif;
+    position: absolute;
+    /* width: 20%; */
+    bottom: 0.5em;
+    right: 0.5em;
+    text-align: end;
+    z-index: 10;
+}
+/******************************css *******************************/
+.body-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 20px;
+    max-width: 83vw;
+    margin: 0 auto;
+}
+
+.first,
+.wrapper {
+    height: 65vh;
+    flex-basis: 50%;
+    cursor: pointer;
+    transition: flex-basis 0.4s ease-in-out 0.2s;
+    text-align: center;
+    overflow: hidden;
+}
+
+.caption-header {
+    font-weight: 100;
+    background: rgba(25, 25, 25, 0.8);
+    color: #fff;
+    font-size: 1.5em;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out 0.4s;
+}
+
+.first:hover,
+.wrapper:hover {
+    flex-basis: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.background-wrapper {
+    flex-basis: 33.333%;
+    margin-bottom: 20px;
+    width: 100%;
+    transition: flex-basis 0.4s ease-in-out 0.2s;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.background-attach {
+    background-attachment: scroll !important;
+    background-position: center center !important;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.wrapper > div:last-child {
+    margin-bottom: 0;
+}
+
+.background-wrapper:hover {
+    flex-basis: 100%;
+}
+
+.background-wrapper:hover > .caption-header,
+.first:hover > .caption-header {
+    transform: translateY(0);
+}
+
+#large-image-one {
+    background: url("https://images.pexels.com/photos/159420/piano-instrument-music-keys-159420.jpeg?w=940&h=650&auto=compress&cs=tinysrgb") fixed 40% 50% no-repeat;
+}
+
+#first {
+    background: url("https://images.pexels.com/photos/323137/pexels-photo-323137.jpeg?w=940&h=650&auto=compress&cs=tinysrgb") fixed 20% 50% no-repeat;
+}
+
+#second {
+    background: url("https://images.pexels.com/photos/33283/stack-of-books-vintage-books-book-books.jpg?w=940&h=650&auto=compress&cs=tinysrgb") fixed 70% 100% no-repeat;
+}
+
+#third {
+    background: url("https://images.pexels.com/photos/34435/pexels-photo.jpg?w=940&h=650&auto=compress&cs=tinysrgb") fixed 100% 50% no-repeat;
 }

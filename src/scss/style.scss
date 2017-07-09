@@ -1,49 +1,56 @@
-@import "efects" ;
-@import "animations" ;
+@import "efects";
+@import "animations";
 @import "title";
-$color-primary:#e23e3b;
+$color-primary: #e23e3b;
 $color-second: #333;
 $color-third: gray;
 
 body {
-  background: #fff;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    background: #fff;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
-*, *:before, *:after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 /***************************/
-.portfolio , .home-page , .contact-me , .about-me {
-  margin-bottom: 10vh;
+.about-me,
+.contact-me,
+.home-page,
+.portfolio {
+    margin-bottom: 10vh;
 }
 
 .detail-pg {
-  position: absolute;
-      padding-right: 6vw;
-      bottom: -89vh;
-      right: 0;
-      & .--title-detalle{
+    position: absolute;
+    padding-right: 6vw;
+    bottom: -89vh;
+    right: 0;
+
+    & .--title-detalle {
         color: $color-primary;
-      }
+    }
 }
 
-
-h3{
-  padding: 1em;
-  transition: 3s ease-in;
-  margin: 3em;
+.principal h3 {
+    padding: 1em;
+    transition: 3s ease-in;
+    margin: 3em;
 }
+
 .top-line-hidden-black {
-  color: #000;
-  background: linear-gradient(to left, black, black) no-repeat 0 0;
-  background-size: 0% 2px;
+    color: #000;
+    background: linear-gradient(to left, black, black) no-repeat 0 0;
+    background-size: 0 2px;
 }
 
 .top-line {
-  color: #e23e3b;
-  background: linear-gradient(to left, #e23e3b, #e23e3b) no-repeat 0 0;
-  background-size: 100% 2px;
-  cursor: default;
+    color: #e23e3b;
+    background: linear-gradient(to left, #e23e3b, #e23e3b) no-repeat 0 0;
+    background-size: 100% 2px;
+    cursor: default;
 }
